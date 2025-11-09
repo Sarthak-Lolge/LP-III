@@ -1,15 +1,23 @@
-def fibonacci(n):
+# pr1
+
+
+# Recursive Fibonacci
+def fib_recursive(n):
     if n <= 1:
         return n
-    else:
-        return fibonacci(n-1) + fibonacci(n-2)
+    return fib_recursive(n-1) + fib_recursive(n-2)
 
-# take input from user
-nterms = int(input("Enter number of terms: "))
+# Non-Recursive (Iterative) Fibonacci
+def fib_iterative(n):
+    if n <= 1:
+        return n
+    a, b = 0, 1
+    for _ in range(2, n+1):
+        a, b = b, a + b
+    return b
 
-if nterms <= 0:
-    print("Please enter a positive integer")
-else:
-    print("Fibonacci sequence:")
-    for i in range(nterms):
-        print(fibonacci(i))
+# Input and Output
+n = int(input("Enter value of n: "))
+
+print("Fibonacci using Recursive method:", fib_recursive(n))
+print("Fibonacci using Iterative method:", fib_iterative(n))
